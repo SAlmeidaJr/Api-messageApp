@@ -1,0 +1,9 @@
+spring:
+    applcation: 
+        name: "access"
+    datasource:
+        password: "1234"
+        url: 
+        username: "postgres"
+    jpa:
+        show-sql: true
