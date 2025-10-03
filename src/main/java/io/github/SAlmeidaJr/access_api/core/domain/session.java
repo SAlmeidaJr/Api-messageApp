@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import io.github.SAlmeidaJr.access_api.enums.TypeTalk;
+import io.github.SAlmeidaJr.access_api.core.enums.TypeTalk;
 
 public record session(
     UUID sessionId,

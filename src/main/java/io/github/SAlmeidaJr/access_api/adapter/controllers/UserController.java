@@ -11,35 +11,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.SAlmeidaJr.access_api.adapter.converters.YapperConverters;
-import io.github.SAlmeidaJr.access_api.adapter.dtos.YapperDto;
-import io.github.SAlmeidaJr.access_api.core.domain.Yapper;
-import io.github.SAlmeidaJr.access_api.core.domain.ports.YapperServicePort;
+import io.github.SAlmeidaJr.access_api.adapter.converters.UserConverters;
+import io.github.SAlmeidaJr.access_api.adapter.dtos.UserDto;
+import io.github.SAlmeidaJr.access_api.core.ports.UserServicePort;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("api/user")
 @RequiredArgsConstructor
-public class YapperController {
+public class UserController {
 
-    private final YapperServicePort yapperServicePort;
-    private final YapperConverters yapperConverters;
+    private final UserServicePort UserServicePort;
+    private final UserConverters UserConverters;
 
-    @PostMapping("create")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Yapper create(@RequestBody YapperDto yapperdDto){
-        return yapperServicePort.createUser(yapperConverters.toYapper(yapperdDto));
+    public UserDto create(@RequestBody UserDto userDto){
+        return UserConverters.toDto(UserServicePort.createUser(UserConverters.toDomainUser(userDto)));
     }
 
     @PostMapping("login")
     @ResponseStatus(HttpStatus.FOUND)
-    public YapperDto login(@RequestBody YapperDto yapperDto){
-        return yapperDto;
+    public UserDto login(@RequestBody UserDto userDto){
+        return userDto;
     }
 
     @GetMapping
-    public UUID searchYapper(@RequestParam("yapperId") UUID yapperid){
-        return yapperid;
+    public UUID searchUser(@RequestParam("UserId") UUID userId){
+        return userId;
     }
 
 }
