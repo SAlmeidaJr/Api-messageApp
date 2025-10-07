@@ -13,6 +13,6 @@ public record session(
     String name,
     Boolean admin,
     LocalDateTime timestamp,
-    Set<UUID> UserId,
+    Set<UUID> UserIds,
     List<UUID> messagesIds
 ) {}

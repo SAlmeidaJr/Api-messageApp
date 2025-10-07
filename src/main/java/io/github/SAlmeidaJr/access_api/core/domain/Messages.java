@@ -6,7 +6,7 @@ import java.util.UUID;
 public record Messages(
     UUID id,
     UUID sessionId,
-    UUID yappersId,
+    UUID userIds,
     String type,
     String content,
     LocalDateTime dateSent

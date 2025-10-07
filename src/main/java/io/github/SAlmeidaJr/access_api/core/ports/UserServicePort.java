@@ -4,4 +4,6 @@ import io.github.SAlmeidaJr.access_api.core.domain.User;
 
 public interface UserServicePort {
     User createUser(User user);
+
+    User loginUser(User user);
 }
